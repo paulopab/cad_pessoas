@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-3">
+  <h2>Lista de pessoas</h2>
+  <p>Exemplo de cadastro de pessoas django</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NOME</th>
+        <th>DATA NASC</th>
+        <th>ATIVO</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for pessoa in object_list %}
+
+    <tr>
+      <td>{{pessoa.id}}</td>
+      <td>{{pessoa.nome_completo}}</td>
+        <td>{{pessoa.data_nascimento}}</td>
+        <td>{{pessoa.ativa}}</td>
+      </tr>
+
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
