@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <div class="container mt-3">
   <h2>Lista de pessoas</h2>
   <p>Exemplo de cadastro de pessoas django</p>
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -25,5 +27,6 @@
     {% endfor %}
     </tbody>
   </table>
+  <a href="{% url 'pessoa.novo' %}">Novo</a>
 </div>
 {% endblock content %}
