@@ -1,0 +1,5 @@
+<form method="post">
+  {% csrf_token %}
+  <p> Deseja relamente excluir o registro "{{object }}"?</p>
+  <input type="submit" value="Confirmar">
+</form>

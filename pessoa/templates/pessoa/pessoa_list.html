@@ -5,6 +5,11 @@
   <h2>Lista de pessoas</h2>
   <p>Exemplo de cadastro de pessoas django</p>
 
+  <form method="GET">
+    <input type="text" name="nome" placeholder="Busca por nome">
+    <input type="submit" value="Buscar">
+  </form>
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -12,6 +17,7 @@
         <th>NOME</th>
         <th>DATA NASC</th>
         <th>ATIVO</th>
+        <th>AÇÕES</th>
       </tr>
     </thead>
     <tbody>
@@ -20,8 +26,11 @@
     <tr>
       <td>{{pessoa.id}}</td>
       <td>{{pessoa.nome_completo}}</td>
-        <td>{{pessoa.data_nascimento}}</td>
+        <td>{{pessoa.data_nascimento | date:"d/m/yy" }}</td>
         <td>{{pessoa.ativa}}</td>
+       <td> <a href="{% url 'pessoa.editar' pessoa.pk %}"> Editar</a>  |
+         <a href="{% url 'pessoa.excluir' pessoa.pk %}"> Excluir</a>
+       </td>
       </tr>
 
     {% endfor %}

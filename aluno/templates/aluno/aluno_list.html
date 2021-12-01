@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container mt-3">
+  <h2>Lista de Alunos</h2>
+  <p>Exemplo de cadastro de pessoas django</p>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NOME</th>
+        <th>SEXO</th>
+        <th>ENDEREÇO</th>
+        <th>ATIVO</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for aluno in object_list %}
+
+    <tr>
+      <td>{{aluno.id}}</td>
+      <td>{{aluno.nome}}</td>
+      <td>{{aluno.sexo}}</td>
+        <td>{{aluno.endereco}}</td>
+        <td>{{aluno.ativo}}</td>
+      <th> <button class="btn btn-primary" style="width:50px;"> Del </button> </th>
+      </tr>
+
+    {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'pessoa.novo' %}">Novo</a>
+</div>
+
+{% endblock content %}
